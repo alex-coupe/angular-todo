@@ -28,4 +28,8 @@ export class TodoService {
   toggleComplete(todo: Todo): Observable<any> {
     return this.http.put<Todo>(`${this.todosURL}/${todo.id}`,todo, this.httpOptions);
   }
+
+  deleteTodo(todo: Todo): Observable<Todo> {
+    return this.http.delete<Todo>(`${this.todosURL}/${todo.id}`, this.httpOptions);
+  }
 }
